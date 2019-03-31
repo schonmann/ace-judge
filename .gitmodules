@@ -4,3 +4,6 @@
 [submodule "ace-judge-server"]
 	path = ace-judge-server
 	url = https://github.com/schonmann/ace-judge-server
+[submodule "ace-judge-referee"]
+	path = ace-judge-referee
+	url = https://github.com/schonmann/ace-judge-referee
