@@ -1,5 +1,20 @@
 version: '3'
 services:
+  ace-judge-database:
+    hostname: mysql
+    image: mysql
+    ports:
+      - 3306:3306
+      - 30306:30306
+    environment: 
+      - MYSQL_ROOT_PASSWORD=as1234
+  ace-judge-rabbitmq:
+    hostname: rabbitmq
+    image: rabbitmq
+    ports:
+      - 5672:5672
+  ace-judge-referee:
+    image: nginx
   ace-judge-web:
     build:
       context: ./ace-judge-client
@@ -15,13 +30,3 @@ services:
     depends_on:
       - ace-judge-database
       - ace-judge-rabbitmq
-  ace-judge-database:
-    image: mysql
-    ports:
-      3306:3306
-  ace-judge-rabbitmq:
-    image: rabbitmq
-    ports:
-      5672:5672
-  ace-judge-referee:
-    image: nginx
