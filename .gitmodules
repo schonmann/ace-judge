@@ -1,0 +1,3 @@
+[submodule "ace-judge-client"]
+	path = ace-judge-client
+	url = https://github.com/schonmann/ace-judge-client
