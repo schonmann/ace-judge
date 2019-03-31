@@ -1,0 +1,27 @@
+version: '3'
+services:
+  ace-judge-web:
+    build:
+      context: ./ace-judge-client
+    ports:
+      - 80:4200
+    depends_on:
+      - ace-judge-server
+  ace-judge-server:
+    build:
+      context: ./ace-judge-server
+    ports:
+      - 8080:8080
+    depends_on:
+      - ace-judge-database
+      - ace-judge-rabbitmq
+  ace-judge-database:
+    image: mysql
+    ports:
+      3306:3306
+  ace-judge-rabbitmq:
+    image: rabbitmq
+    ports:
+      5672:5672
+  ace-judge-referee:
+    image: nginx
