@@ -23,7 +23,7 @@ services:
     build:
       context: ./ace-judge-client
       args: 
-        - ENV=--prod
+        - ENV=
     ports:
       - 80:80
     environment:
