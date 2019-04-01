@@ -6,7 +6,7 @@ services:
     ports:
       - 3306:3306
       - 30306:30306
-    environment: 
+    environment:
       - MYSQL_ROOT_PASSWORD=as1234
   ace-judge-rabbitmq:
     hostname: rabbitmq
@@ -30,3 +30,9 @@ services:
     depends_on:
       - ace-judge-database
       - ace-judge-rabbitmq
+    environment: 
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=ace
+      - MYSQL_USER=ace
+      - MYSQL_PASS=as1234
+      - FILE_UPLOAD_DIR=/upload-dir
