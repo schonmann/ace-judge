@@ -8,18 +8,22 @@ services:
       - 30306:30306
     environment:
       - MYSQL_ROOT_PASSWORD=as1234
+    volumes:
+      - database_volume:/var/lib/mysql
+    restart: always
   rabbitmq:
     hostname: rabbitmq
     image: rabbitmq
     ports:
       - 5672:5672
+    restart: always
   referee:
     image: nginx
   web:
     build:
       context: ./ace-judge-client
     ports:
-      - 80:4200
+      - 80:80
     depends_on:
       - server
   server:
@@ -38,3 +42,6 @@ services:
       - RABBIT_HOST=rabbitmq
       - RABBIT_PORT=5672
       - FILE_UPLOAD_DIR=/upload-dir
+    restart: always
+volumes: 
+  database_volume:
