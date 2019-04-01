@@ -22,8 +22,13 @@ services:
   web:
     build:
       context: ./ace-judge-client
+      args: 
+        - ENV=--prod
     ports:
       - 80:80
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=8080
     depends_on:
       - server
   server:
