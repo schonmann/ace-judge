@@ -16,6 +16,7 @@ services:
     image: rabbitmq
     ports:
       - 5672:5672
+      - 15672:15672
     restart: always
   referee:
     image: nginx
@@ -47,6 +48,9 @@ services:
       - RABBIT_HOST=rabbitmq
       - RABBIT_PORT=5672
       - FILE_UPLOAD_DIR=/upload-dir
+    volumes:
+      - uploads_volume:/upload-dir
     restart: always
 volumes: 
   database_volume:
+  uploads_volume:
