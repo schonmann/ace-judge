@@ -50,6 +50,7 @@ services:
       - FILE_UPLOAD_DIR=/upload-dir
     volumes:
       - uploads_volume:/upload-dir
+      - "${HOME}/.m2:/root/.m2"
     restart: always
 volumes: 
   database_volume:
