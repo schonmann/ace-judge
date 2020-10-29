@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 services:
   database:
     hostname: mysql
@@ -23,6 +23,7 @@ services:
   web:
     build:
       context: ./ace-judge-client
+      target: development
       args: 
         - ENV=
     ports:
@@ -32,6 +33,8 @@ services:
       - SERVER_PORT=8080
     depends_on:
       - server
+    volumes: 
+      - ./ace-judge-client/src:/ng-app/src
   server:
     build:
       context: ./ace-judge-server
