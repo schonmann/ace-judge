@@ -19,7 +19,14 @@ services:
       - 15672:15672
     restart: always
   referee:
-    image: nginx
+    build:
+      context: ./ace-judge-referee
+      target: development
+    environment:
+      - BROKER_URL=amqp://guest@rabbitmq:5672//
+      - BACKEND_URL=rpc://
+    depends_on:
+      - server
   web:
     build:
       context: ./ace-judge-client
@@ -27,7 +34,7 @@ services:
       args: 
         - ENV=
     ports:
-      - 80:80
+      - 4200:4200
     environment:
       - SERVER_HOST=server
       - SERVER_PORT=8080
