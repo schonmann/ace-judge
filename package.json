@@ -1,0 +1,13 @@
+{
+  "name": "ace-judge",
+  "version": "1.0.0",
+  "description": "The ACE Online Judge",
+  "main": "index.js",
+  "repository": "git@github.com:schonmann/ace-judge.git",
+  "author": "schonmann <antonio_schonmann@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pull-submodules": "git submodule foreach git pull origin master",
+    "update-submodules": "git commit -am \"Pulled down update to submodule_dir\""
+  }
+}
