@@ -26,7 +26,9 @@ services:
       - BROKER_URL=amqp://guest@rabbitmq:5672//
       - BACKEND_URL=rpc://
     depends_on:
-      - server
+      - rabbitmq
+    volumes: 
+      - ./ace-judge-referee:/app
   web:
     build:
       context: ./ace-judge-client

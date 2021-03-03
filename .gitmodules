@@ -1,9 +1,9 @@
 [submodule "ace-judge-client"]
 	path = ace-judge-client
-	url = https://github.com/schonmann/ace-judge-client
+	url = git@github.com:schonmann/ace-judge-client.git
 [submodule "ace-judge-server"]
 	path = ace-judge-server
-	url = https://github.com/schonmann/ace-judge-server
+	url = git@github.com:schonmann/ace-judge-server.git
 [submodule "ace-judge-referee"]
 	path = ace-judge-referee
-	url = https://github.com/schonmann/ace-judge-referee
+	url = git@github.com:schonmann/ace-judge-referee.git
